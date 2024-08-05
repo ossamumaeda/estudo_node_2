@@ -4,7 +4,6 @@ const app = fastify()
 const __PORT__ = 3000
 app.get('/', () => {
   const teste = knexExport('sqlite_schema').select('*')
-  console.log(teste)
   return teste
 })
 
