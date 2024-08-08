@@ -1,15 +1,21 @@
 import fastify from 'fastify'
+import cookie from '@fastify/cookie'
+
 import {knexExport} from './database'
+import crypto, { randomUUID } from 'node:crypto'
+import { env } from './env'
+import { transactionRoutes } from './routes/transactions'
 const app = fastify()
-const __PORT__ = 3000
-app.get('/', () => {
-  const teste = knexExport('sqlite_schema').select('*')
-  return teste
+
+app.register(cookie)
+
+app.register(transactionRoutes,{
+  prefix:'transactions',
 })
 
 app
   .listen({
-    port: __PORT__,
+    port: env.PORT,
   })
   .then(() => {
     console.log('Server is Online !')
