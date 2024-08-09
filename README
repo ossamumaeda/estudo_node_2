@@ -1,12 +1,4 @@
-#RF
-- [X] POST Criar nova transação 
-- [X] GET Resumo da conta 
-- [X] GET Listar todas as transações ja realizadas 
-- [X] GET Buscar única transação  
-
-
-#RN
-- [X] Se a transação for do tipo crédito, o valor será somado ao total 
-- [X] Se a transação for débito, o valor será subtraido do total
-- [] Identificar usuários entre as requisições
-- [] O usuário só pode visualizar as transações criadas por ele mesmo
+Set up for local tests:
+    $ npm install
+    $ npm run knex -- migrate:latest
+    $ npm run dev
